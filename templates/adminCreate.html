@@ -1,0 +1,31 @@
+{% extends "adminRoot.html" %}
+{% block content %}
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- Create an Admin -->
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Create an admintistrator</h1>
+      <form action="/admin/createAdmin" method="POST" name="createAdmin_form">
+        <!-- Username -->
+        <label for="name">Username</label><br>
+        <input type="text" name="username" class="field" required><br>
+        <!-- E-mail -->
+        <label for="email">E-mail</label><br>
+        <input type="email" name="email" class="field" required><br>
+        <!-- Fullname -->
+        <label for="fullname">Fullname</label><br>
+        <input type="text" name="fullname" class="field" required><br>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Create button -->
+        <input type="submit" value="Create" class="btn">
+      </form>
+    </div>
+</div>
+{% endblock %}

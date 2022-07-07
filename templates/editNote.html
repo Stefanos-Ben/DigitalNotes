@@ -1,0 +1,48 @@
+{% extends "userRoot.html" %}
+{% block title %}Edit Note{% endblock %}
+{% block content %}
+  <!-- Flashed Message -->
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- Edit Note -->
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Edit Note</h1>
+      <form action="/user/editNote" method="POST" name="editNote_form">
+        <!-- Old Title -->
+        <label for="title">Old title</label>
+        <input type="text" name="title" class="field" required><br><br>
+        <h5>Fill-in ALL forms in order to edit the note.</h5>
+        <h6>If you don't wish to change something you need to re-write it.</h6>
+        <label for="title">Title</label>
+        <input type="text" name="new_title" class="field" required><br>
+        <label for="title">Note</label>
+        <input type="text" name="new_content" class="field" required><br>
+        <label for="title">Kew-words</label>
+        <input type="text" name="new_kwords" class="field" required>
+        <h6>Key-words must be comma seperated ex: this, is, an, example</h6>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Submit button -->
+        <input type="submit" value="Edit" class="button"><br><br>
+        <!-- Show Notes -->
+        <h5>Your notes:</h5><br>
+        {% for note in notes %}
+        <li class="list-group-item">
+          <p>
+            <strong>Title:</strong> {{ note.title }}<br>
+            <strong>Note:</strong> <br> {{ note.content }}<br>
+            <strong>Created:</strong> {{ note.crDate }}<br>
+            <strong>Key-words:</strong> {{ note.kwords }} <br>
+          </p>
+        </li>
+        {% endfor %}
+      </form>
+    </div>
+  </div>
+{% endblock %}

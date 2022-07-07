@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- Title -->
+    <title>{% block title %}DigitalNotes Login System{% endblock title %}</title>
+  </head>
+  <body>
+    <!-- Flashed messages -->
+    {% block content %}
+    {% with messages = get_flashed_messages()%}
+      {% if messages %}
+        {%for msg in messages %}
+          <p>{{msg}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% endblock %}
+    <!-- JS -->
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/scripts.js"></script>
+  </body>
+</html>

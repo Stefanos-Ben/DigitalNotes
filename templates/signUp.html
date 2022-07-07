@@ -1,0 +1,41 @@
+{% extends "authRoot.html" %}
+<!-- Flashed messages -->
+{% block content %}
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+<h3>Sign Up and start creating your Digital Notes!</h3>
+<!-- Sign Up -->
+<div class="card-wrapper">
+  <div class="card">
+    <h1 class="center">Sign Up below</h1>
+    <form action="/auth/signUp" method="POST" name="signUp_form">
+        <!-- Email -->
+        <label for="email">E-mail</label><br>
+        <input type="text" name="email" class="field" required><br><br>
+        <!-- Fullname -->
+        <label for="fullname">Fullname</label><br>
+        <input type="text" name="fullname" class="field" required><br><br>
+        <!-- Username -->
+        <label for="username">Username</label><br>
+        <input type="text" name="username" class="field" required><br><br>
+        <!-- Password -->
+        <label for="password">Password</label><br>
+        <input type="password" name="password" class="field" required>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Submit Button -->
+        <input type="submit" value="Sign Up" class="btn">
+    </form><br><br>
+    <!-- Sign In -->
+    <h5>Already have an account?</h5>
+    <p align="center"><a href="/auth/signIn">
+      <button class="btn btn-sm btn-outline-secondary" type="button">Sign-In</button></a>
+    </p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "authRoot.html" %}
+<!-- Flashed messages -->
+{% block content %}
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+<h3>Sign In to your DigitalNotes account</h3>
+<!-- Sign In -->
+<div class="card-wrapper">
+  <div class="card">
+    <h1 class="center"></h1>
+    <form action="/auth/signIn" method="POST" name="signIn_form">
+        <!-- Email or Username -->
+        <label for="name">E-mail or Username</label><br>
+        <input type="text" name="name" class="field" required><br><br>
+        <!-- Password -->
+        <label for="password">Password</label><br>
+        <input type="password" name="password" class="field" required>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Submit Button -->
+        <input type="submit" value="Sign In" class="btn">
+    </form><br><br>
+    <!-- Sign Up -->
+    <h5>Don't have an account?</h5>
+    <p align="center"><a href="/auth/signUp">
+      <button class="btn btn-sm btn-outline-secondary" type="button">Sign-Up</button></a>
+    </p>
+  </div>
+</div>
+{% endblock %}

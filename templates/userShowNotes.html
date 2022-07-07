@@ -1,0 +1,38 @@
+{% extends "userRoot.html" %}
+{% block title %}User Home{% endblock title %}
+{% block content %}
+    <h3>Logged in as {{ usName }}</h3>
+    <h2>Your notes:</h2>
+<!-- Flashed messages -->
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+<form action="/user/userShowNotes" method="POST" name="sort_form">
+  <input type="submit" name="submit_button" value="Newer">
+  <input type="submit" name="submit_button" value="Older">
+</form>
+<!-- Show notes -->
+{% for note in notes %}
+<div class="card-wrapper">
+  <div class="card">
+    <h1 class="center"></h1>
+    <form action="/user/userShowNotes" method="POST" name="showNotes_form">
+      <li class="list-group-item">
+        <p>
+          <strong>Title:</strong> {{ note.title }}<br>
+          <strong>Note:</strong> <br> {{ note.content }}<br>
+          <strong>Created:</strong> {{ note.crDate }}<br>
+          <strong>Key-words:</strong> {{ note.kwords }} <br>
+        </p>
+      </li>
+      <!-- Check for errors -->
+      <p class="error error--hidden"></p>
+    </form>
+  </div>
+</div>
+  {% endfor %}
+{% endblock %}

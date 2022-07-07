@@ -1,0 +1,27 @@
+{% extends "userRoot.html" %}
+{% block title %}Search Note via Title{% endblock %}
+{% block content %}
+  <!-- Flashed Messages -->
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- Search -->
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Search Note via Title</h1>
+      <form action="/user/searchViaTitle" method="POST" name="search_form">
+        <!-- Title field -->
+        <label for="title">Title</label>
+        <input type="text" name="title" class="field" required><br>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Submit button -->
+        <input type="submit" value="Search Notes" class="button">
+      </form>
+    </div>
+  </div>
+{% endblock %}

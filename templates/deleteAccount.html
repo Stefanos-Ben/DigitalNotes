@@ -1,0 +1,28 @@
+{% extends "userRoot.html" %}
+{% block title %}Delete Account{% endblock %}
+{% block content %}
+  <!-- Flashed Message -->
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- Delete Account -->
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Delete your account</h1>
+      <form action="/user/deleteAccount" method="POST" name="editNote_form">
+        <!-- Old Title -->
+        <label for="title">Type your username in order to delete</label>
+        <input type="text" name="username" class="field" required>
+        <h6>Be carefull by deleting your account all your data will be lost!</h6><br>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Submit button -->
+        <input type="submit" value="Delete" class="button">
+      </form>
+    </div>
+  </div>
+{% endblock %}

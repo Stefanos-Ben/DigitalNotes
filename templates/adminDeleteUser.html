@@ -1,0 +1,25 @@
+{% extends "adminRoot.html" %}
+{% block content %}
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- Delete a user -->
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Delete a user</h1>
+      <form action="/admin/deleteUser" method="POST" name="deleteUser_form">
+        <!-- Username -->
+        <label for="name">Username</label><br>
+        <input type="text" name="username" class="field" required><br>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Create button -->
+        <input type="submit" value="Delete" class="btn">
+      </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "userRoot.html" %}
+{% block title %}Delete Note{% endblock %}
+{% block content %}
+  <!-- Flashed Message -->
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- Delete Note -->
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Delete Note</h1>
+      <form action="/user/deleteNote" method="POST" name="deleteNote_form">
+        <!-- Old Title -->
+        <label for="title">Title</label>
+        <input type="text" name="title" class="field" required><br><br>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Submit button -->
+        <input type="submit" value="Delete" class="button"><br><br>
+        <!-- Show Notes -->
+        <h5>Your notes:</h5><br>
+        {% for note in notes %}
+        <li class="list-group-item">
+          <p>
+            <strong>Title:</strong> {{ note.title }}<br>
+            <strong>Note:</strong> <br> {{ note.content }}<br>
+            <strong>Created:</strong> {{ note.crDate }}<br>
+            <strong>Key-words:</strong> {{ note.kwords }} <br>
+          </p>
+        </li>
+        {% endfor %}
+      </form>
+    </div>
+  </div>
+{% endblock %}

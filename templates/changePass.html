@@ -1,0 +1,27 @@
+{% extends "authRoot.html" %}
+{% block title %}Change password{% endblock %}
+{% block content %}
+  <!-- Flashed Message -->
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Change password</h1>
+      <form action="/auth/changePass" method="POST" name="editNote_form">
+        <!-- New password -->
+        <h6>Looks like you are loging in as an admin for the first time <br>That means you need to change your OT password.</h6>
+        <label for="new_pass">New password</label>
+        <input type="password" name="new_pass" class="field" required><br><br>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Submit button -->
+        <input type="submit" value="Change" class="button"><br><br>
+      </form>
+    </div>
+  </div>
+{% endblock %}

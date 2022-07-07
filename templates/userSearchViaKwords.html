@@ -1,0 +1,27 @@
+{% extends "userRoot.html" %}
+{% block title %}Search Note via Key-Word{% endblock %}
+{% block content %}
+  <!-- Flashed Messages -->
+  {% with messages = get_flashed_messages()%}
+    {% if messages %}
+      {%for msg in messages %}
+          <p>{{msg}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- Search -->
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Search Note via Key-Word</h1>
+      <form action="/user/searchViaKwords" method="POST" name="search_form">
+        <!-- Kword field -->
+        <label for="kwords">Key-Word</label>
+        <input type="text" name="kwords" class="field" required><br>
+        <!-- Check for errors -->
+        <p class="error error--hidden"></p>
+        <!-- Submit button -->
+        <input type="submit" value="Search Notes" class="button">
+      </form>
+    </div>
+  </div>
+{% endblock %}
