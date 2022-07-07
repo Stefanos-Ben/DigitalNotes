@@ -2,10 +2,10 @@
 Υπηρεσία δημιουργίας ψηφιακών σημειώσεων.
 
 ##Contents
-* [Το σύστημα](#Το σύστημα)
-* [Η βάση](#Η βάση)
-* [Εγκατάσταση και εκτέλεση](#Εγκατάσταση και εκτέλεση)
-* [Λειτουργίες Συστήματος](#Λειτουργίες Συστήματος)
+* [Το σύστημα](#Το-σύστημα)
+* [Η βάση](#Η-βάση)
+* [Εγκατάσταση και εκτέλεση](#Εγκατάσταση-και-εκτέλεση)
+* [Λειτουργίες Συστήματος](#Λειτουργίες-Συστήματος)
   * [Authentication](#Authentication)
   * [User](#User)
   * [Administrator](#Administrator)
@@ -19,15 +19,15 @@
 Χρησιμοποιούνται 2 collections σε μια βάση MongoDb τα οποία έχουν την εξής δομή:
 * Το πρώτο collection ονομάζεται users και περιέχει όλες τις πληροφορίες ενός χρήστη.
 users:
-|username|password| email |fullname|property|
-|--------|--------|-------|--------|--------|
-| string | string | string| string | string |
+| username | password | email | fullname |property|
+| --- | --- | --- | --- | --- |
+| string | string | string | string | string |
 
 * To δεύτερο collection ονομάζεται notes και περιέχει όλες τις πληροφορίες μιας σημείωσης.
 notes:
-|username| title  | content | crDate |kwords|
-|--------|--------|---------|--------|------|
-| string | string | string  |Datetime|string|
+| username | title | content | crDate | kwords |
+| --- | --- | --- | --- | --- |
+| string | string | string | Datetime | string |
 
 == Κατα την εκτέλεση δημιουργείται αυτόματα ο λογαριασμός ενός διαχειριστή με στοιχεία username: admin1, password: admin και email: admin@gmail.com ==
 
@@ -58,8 +58,8 @@ sudo docker-compose up --build
 Στη σελίδα εγγραφής ο χρήστης μπορεί να δημιουργήσει έναν λογαριασμό με τα στοιχεία του οποίου θα μπορεί να εισέρχεται στην υπηρεσία DigitalNotes.
 Ένας νέος χρήστης δε μπορεί να δημιουργήσει λογαριασμό με username ή email που ήδη χρησιμοποιείται.
 
-<img src="./img/singUp1.png" width="512">
-<img src="./img/singUp2.png" width="512">
+<img src="./img/signUp1.png" width="512">
+<img src="./img/singnUp2.png" width="512">
 
 ## User
 ### Εμφάνιση σημειώσεων
