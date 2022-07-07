@@ -64,7 +64,7 @@ sudo docker-compose up --build
 Ένας νέος χρήστης δε μπορεί να δημιουργήσει λογαριασμό με username ή email που ήδη χρησιμοποιείται.
 
 <img src="./img/signUp1.png" width="512">
-<img src="./img/singnUp2.png" width="512">
+<img src="./img/signUp2.png" width="512">
 
 ## User
 ### Εμφάνιση σημειώσεων
