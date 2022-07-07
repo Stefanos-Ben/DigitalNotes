@@ -18,20 +18,23 @@
 ## Η βάση
 Χρησιμοποιούνται 2 collections σε μια βάση MongoDb τα οποία έχουν την εξής δομή:
 * Το πρώτο collection ονομάζεται users και περιέχει όλες τις πληροφορίες ενός χρήστη.
+
 users:
 
-| username | password | email | fullname | property |
-| - - - | - - - | - - - | - - - | - - - |
-| string | string | string | string | string |
+| username    | password    | email       | fullname    | property    |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| string      | string      | string      | string      | string      |
+
 
 * To δεύτερο collection ονομάζεται notes και περιέχει όλες τις πληροφορίες μιας σημείωσης.
+
 notes:
 
-| username | title | content | crDate | kwords |
-| - - - | - - - | - - - | - - - | - - - |
-| string | string | string | Datetime | string |
+| username    | title       | content     | crDate      | kwords      |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| string      | string      | string      | DateTime    | string      |
 
- *Κατα την εκτέλεση δημιουργείται αυτόματα ο λογαριασμός ενός διαχειριστή με στοιχεία username: admin1, password: admin και email: admin@gmail.com*
+ *Κατα την εκτέλεση δημιουργείται αυτόματα ο λογαριασμός ενός διαχειριστή με στοιχεία username: admin1, password: admin και email: 'admin@gmail.com'*
 
 ## Εγκατάσταση και εκτέλεση
 
